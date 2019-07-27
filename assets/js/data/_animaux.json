@@ -1,0 +1,18 @@
+{
+    "start": {
+        "1": "L'oiseau ",
+        "2": "Le chien ",
+        "3": "Le chat ",
+        "4": "Le poulet"
+    },
+    "middle": {
+        "1": "qui est sur le baobab ",
+        "2": "qui est en voyage ",
+        "3": "avec le sac a dos "
+    },
+    "end": {
+        "1": "ne doit pas oublier qu'il a porté des lunettes.",
+        "2": "n'oublie pas la bousole.",
+        "3": "n'attends pas que le gorille accouche."
+    }
+}
