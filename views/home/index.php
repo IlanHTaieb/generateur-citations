@@ -4,9 +4,9 @@ ob_start();
 
     <div class="modal">
         <div class="form">
-            <ul class="list-group citations d-flex flex-column justify-content-center">
+            <h1 class="text-center">Citations</h1>
 
-            </ul>
+            <ul class="list-group citations d-flex flex-column justify-content-center"></ul>
 
             <div class="form-group command">
                 <select name="theme" id="theme" class="form-control mb-2 theme">

@@ -1,13 +1,13 @@
-import {Citations} from "./_citations";
+import {Format} from "./_format";
 
 export const Generator = {
     data: {
         citations: [],
-        values: {}
+        json: {}
     },
     init() {
-        $.getJSON("assets/js/data/citations.json", function (data) {
-            Generator.data.values = data
+        $.getJSON("assets/js/data/citations.json", data => {
+            Generator.data.json = data
         })
     },
     generate(nb, theme) {
@@ -15,7 +15,7 @@ export const Generator = {
 
         for (let i = 0; i < nb; i++) {
             Generator.data.citations.push(
-                Citations.HTML(Generator.data.values, theme)
+                Format.HTML(Generator.data.json[theme])
             )
         }
 

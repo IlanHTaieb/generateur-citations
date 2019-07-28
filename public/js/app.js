@@ -86,21 +86,21 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/js/_citations.js":
-/*!*********************************!*\
-  !*** ./assets/js/_citations.js ***!
-  \*********************************/
-/*! exports provided: Citations */
+/***/ "./assets/js/_format.js":
+/*!******************************!*\
+  !*** ./assets/js/_format.js ***!
+  \******************************/
+/*! exports provided: Format */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Citations", function() { return Citations; });
-var Citations = {
-  HTML: function HTML(data, theme) {
-    var start = data[theme]["start"][Math.floor(Math.random() * Object.keys(data[theme]["start"]).length) + 1];
-    var middle = data[theme]["middle"][Math.floor(Math.random() * Object.keys(data[theme]["middle"]).length) + 1];
-    var end = data[theme]["end"][Math.floor(Math.random() * Object.keys(data[theme]["end"]).length) + 1];
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Format", function() { return Format; });
+var Format = {
+  HTML: function HTML(data) {
+    var start = data["start"][Math.floor(Math.random() * Object.keys(data["start"]).length) + 1];
+    var middle = data["middle"][Math.floor(Math.random() * Object.keys(data["middle"]).length) + 1];
+    var end = data["end"][Math.floor(Math.random() * Object.keys(data["end"]).length) + 1];
     return '<li class="list-group-item">' + start + ' ' + middle + ' ' + end + '</li>';
   }
 };
@@ -117,23 +117,23 @@ var Citations = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Generator", function() { return Generator; });
-/* harmony import */ var _citations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_citations */ "./assets/js/_citations.js");
+/* harmony import */ var _format__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_format */ "./assets/js/_format.js");
 
 var Generator = {
   data: {
     citations: [],
-    values: {}
+    json: {}
   },
   init: function init() {
     $.getJSON("assets/js/data/citations.json", function (data) {
-      Generator.data.values = data;
+      Generator.data.json = data;
     });
   },
   generate: function generate(nb, theme) {
     this.release();
 
     for (var i = 0; i < nb; i++) {
-      Generator.data.citations.push(_citations__WEBPACK_IMPORTED_MODULE_0__["Citations"].HTML(Generator.data.values, theme));
+      Generator.data.citations.push(_format__WEBPACK_IMPORTED_MODULE_0__["Format"].HTML(Generator.data.json[theme]));
     }
 
     this.render();
@@ -167,12 +167,12 @@ __webpack_require__.r(__webpack_exports__);
 
 $(document).ready(function () {
   _generator__WEBPACK_IMPORTED_MODULE_0__["Generator"].init();
-});
-$(".runCitations").click(function () {
-  _generator__WEBPACK_IMPORTED_MODULE_0__["Generator"].generate($(".nbCitations").val(), $(".theme").val());
-});
-$(".release").click(function () {
-  _generator__WEBPACK_IMPORTED_MODULE_0__["Generator"].release();
+  $(".runCitations").click(function () {
+    _generator__WEBPACK_IMPORTED_MODULE_0__["Generator"].generate($(".nbCitations").val(), $(".theme").val());
+  });
+  $(".release").click(function () {
+    _generator__WEBPACK_IMPORTED_MODULE_0__["Generator"].release();
+  });
 });
 
 /***/ }),
