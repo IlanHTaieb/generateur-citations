@@ -1,11 +1,14 @@
+h1
+  color: $text-primary
+
 ul
-  color: #FFF
+  color: $text-primary
   font-weight: 600
   font-size: 1.3rem
 
-.modal
+.body
   width: 100%
-  height: 100%
+  min-height: 100%
   display: flex
   justify-content: center
   align-items: center
@@ -13,11 +16,15 @@ ul
 
   & .form
     width: 1100px
-    height: 700px
+    height: auto
+    min-height: 700px
     padding: 15px
-    background: rgba($color: #3191c4, $alpha: 0.7)
+    background: rgba($color: $bg-modal, $alpha: 0.8)
     border: 4px solid #FFF
-    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
 
     & .citations
       height: 80%
@@ -28,8 +35,5 @@ ul
         text-align: center
 
     & .command
-      position: absolute
-      bottom: 15px
       width: 70%
       text-align: center
-      left: 15%

@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-    <div class="modal">
+    <div class="body">
         <div class="form">
             <h1 class="text-center">Citations</h1>
 

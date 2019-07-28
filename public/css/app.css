@@ -28,45 +28,50 @@ li {
   z-index: -1;
 }
 
+h1 {
+  color: #FFF;
+}
+
 ul {
   color: #FFF;
   font-weight: 600;
   font-size: 1.3rem;
 }
 
-.modal {
+.body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
 }
 
-.modal .form {
+.body .form {
   width: 1100px;
-  height: 700px;
+  height: auto;
+  min-height: 700px;
   padding: 15px;
-  background: rgba(49, 145, 196, 0.7);
+  background: rgba(49, 145, 196, 0.8);
   border: 4px solid #FFF;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.modal .form .citations {
+.body .form .citations {
   height: 80%;
 }
 
-.modal .form .citations li {
+.body .form .citations li {
   background: transparent;
   border-color: #FFF;
   text-align: center;
 }
 
-.modal .form .command {
-  position: absolute;
-  bottom: 15px;
+.body .form .command {
   width: 70%;
   text-align: center;
-  left: 15%;
 }
 
