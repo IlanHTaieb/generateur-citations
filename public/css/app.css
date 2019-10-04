@@ -1,3 +1,43 @@
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes to-center {
+  from {
+    margin-left: -10000px;
+  }
+
+  to {
+    margin-left: 0;
+  }
+}
+
+@keyframes to-center {
+  from {
+    margin-left: -10000px;
+  }
+
+  to {
+    margin-left: 0;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -64,10 +104,18 @@ ul {
   height: 80%;
 }
 
-.body .form .citations li {
+.body .form .citations .citation-item {
   background: transparent;
+  width: 800px;
   border-color: #FFF;
   text-align: center;
+}
+
+.body .form .citations .appear {
+  -webkit-animation: appear .7s, to-center .6s;
+          animation: appear .7s, to-center .6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .body .form .command {

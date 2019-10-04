@@ -6,31 +6,37 @@ export const Generator = {
         json: {}
     },
     init() {
-        $.getJSON("assets/js/data/citations.json", data => {
+        $.getJSON("http://localhost/_OPENCLASSROOMS/generateur-citations/assets/js/data/citations.json", data => {
             Generator.data.json = data
         })
     },
     generate(nb, theme) {
-        this.release()
-
+        $('.citation-item').animate({
+            opacity: 0,
+            marginRight: -10000
+        }, 1000, function () {
+            Generator.release()
+            Generator.create(nb, theme)
+            Generator.render()
+            Generator.clear()
+        })
+    },
+    create: function(nb, theme) {
         for (let i = 0; i < nb; i++) {
             Generator.data.citations.push(
                 Format.HTML(Generator.data.json[theme])
             )
         }
-
-        this.render()
-        this.clear()
     },
-    render() {
+    render: function() {
         this.data.citations.forEach(function (citation) {
             $(".citations").append(citation)
         })
     },
-    clear() {
+    clear: function() {
         this.data.citations = []
     },
-    release() {
+    release: function() {
         $(".citations").html('')
     }
 }

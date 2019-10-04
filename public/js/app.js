@@ -101,7 +101,7 @@ var Format = {
     var start = data["start"][Math.floor(Math.random() * Object.keys(data["start"]).length) + 1];
     var middle = data["middle"][Math.floor(Math.random() * Object.keys(data["middle"]).length) + 1];
     var end = data["end"][Math.floor(Math.random() * Object.keys(data["end"]).length) + 1];
-    return '<li class="list-group-item">' + start + ' ' + middle + ' ' + end + '</li>';
+    return '<li class="list-group-item citation-item appear">' + start + ' ' + middle + ' ' + end + '</li>';
   }
 };
 
@@ -125,19 +125,25 @@ var Generator = {
     json: {}
   },
   init: function init() {
-    $.getJSON("assets/js/data/citations.json", function (data) {
+    $.getJSON("http://localhost/_OPENCLASSROOMS/generateur-citations/assets/js/data/citations.json", function (data) {
       Generator.data.json = data;
     });
   },
   generate: function generate(nb, theme) {
-    this.release();
-
+    $('.citation-item').animate({
+      opacity: 0,
+      marginRight: -10000
+    }, 1000, function () {
+      Generator.release();
+      Generator.create(nb, theme);
+      Generator.render();
+      Generator.clear();
+    });
+  },
+  create: function create(nb, theme) {
     for (var i = 0; i < nb; i++) {
       Generator.data.citations.push(_format__WEBPACK_IMPORTED_MODULE_0__["Format"].HTML(Generator.data.json[theme]));
     }
-
-    this.render();
-    this.clear();
   },
   render: function render() {
     this.data.citations.forEach(function (citation) {

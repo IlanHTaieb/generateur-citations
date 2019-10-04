@@ -1,0 +1,15 @@
+@mixin appear()
+  animation: appear .7s, to-center .6s
+  animation-fill-mode: forwards
+
+@keyframes appear
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes to-center
+  from
+    margin-left: -10000px
+  to
+    margin-left: 0
